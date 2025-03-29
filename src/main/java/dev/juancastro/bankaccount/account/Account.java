@@ -18,4 +18,11 @@ public abstract class Account {
         balance += amount;
         deposits++;
     }
+
+    public void withdraw(float amount) {
+        if (amount <= balance) {
+            balance -= amount;
+            withdrawals++;
+        }
+    }
 }
