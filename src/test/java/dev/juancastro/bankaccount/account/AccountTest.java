@@ -24,4 +24,14 @@ public class AccountTest {
         assertThat(account.print(), containsString("Balance: 8000.0"));
         assertThat(account.print(), containsString("Deposits: 1"));
     }
+
+    @Test
+    void withdraw_shouldDecreaseBalanceAndIncreaseWithdrawals() {
+        Account account = new SavingsAccount(10000, 0.12f);
+
+        account.withdraw(2000);
+
+        assertThat(account.print(), containsString("Balance: 8000.0"));
+        assertThat(account.print(), containsString("Withdrawals: 1"));
+    }
 }
