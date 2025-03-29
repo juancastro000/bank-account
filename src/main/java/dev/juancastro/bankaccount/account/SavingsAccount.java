@@ -9,6 +9,6 @@ public class SavingsAccount extends Account {
 
     @Override
     public String print() {
-        return String.format(Locale.US, "Balance: %.1f, Annual Rate: %.1f%%", balance, annualRate * 100);
+        return String.format(Locale.US, "Balance: %.1f, Annual Rate: %.1f%% Deposits: %d", balance, annualRate * 100, deposits);
     }
 }

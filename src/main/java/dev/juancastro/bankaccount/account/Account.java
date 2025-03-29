@@ -13,4 +13,9 @@ public abstract class Account {
     }
 
     public abstract String print();
+
+    public void deposit(float amount) {
+        balance += amount;
+        deposits++;
+    }
 }
