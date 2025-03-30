@@ -25,4 +25,18 @@ public abstract class Account {
             withdrawals++;
         }
     }
+
+    public void calculateMonthlyInterest() {
+        float monthlyInterestRate = (annualRate / 100) / 12;
+        float interest = balance * monthlyInterestRate;
+        balance += interest;
+    }
+
+    public void monthlyStatement() {
+        balance -= monthlyFee;
+        calculateMonthlyInterest();
+        deposits = 0;
+        withdrawals = 0;
+        monthlyFee = 0;
+    }
 }
