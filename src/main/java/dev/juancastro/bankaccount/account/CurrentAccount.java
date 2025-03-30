@@ -10,6 +10,23 @@ public class CurrentAccount extends Account {
     }
 
     @Override
+    public void deposit(float amount) {
+        if (amount > 0) {
+            if (overdraft > 0) {
+                if (amount >= overdraft) {
+                    amount -= overdraft;
+                    overdraft = 0;
+                    super.deposit(amount);
+                } else {
+                    overdraft -= amount;
+                }
+            } else {
+                super.deposit(amount);
+            }
+        }
+    }
+
+    @Override
     public void withdraw(float amount) {
         float possibleOverdraft = amount - balance;
         if (possibleOverdraft > 0) {
