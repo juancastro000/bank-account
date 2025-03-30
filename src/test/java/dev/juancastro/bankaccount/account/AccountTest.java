@@ -34,4 +34,18 @@ public class AccountTest {
         assertThat(account.print(), containsString("Balance: 8000.0"));
         assertThat(account.print(), containsString("Withdrawals: 1"));
     }
+
+    @Test
+    public void testMonthlyStatementCalculatesInterestCorrectly() {
+        SavingsAccount account = new SavingsAccount(15000, 12);
+        account.deposit(0); 
+        account.withdraw(0); 
+        account.monthlyFee = 0;
+        
+        account.monthlyStatement();
+    
+       
+        assertThat(account.print(), containsString("Balance: 15150.0"));
+        assertThat(account.print(), containsString("Total Transactions: 0"));
+    }
 }
