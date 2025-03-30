@@ -9,6 +9,15 @@ public class SavingsAccount extends Account {
         super(balance, annualRate);
         active = balance >= 10000;
     }
+    
+    @Override
+    public void deposit(float amount) {
+        if (active && amount > 0) {
+            super.deposit(amount);
+            updateStatus();
+        }
+    }
+
     @Override
     public void monthlyStatement() {
         if (withdrawals > 4) {
