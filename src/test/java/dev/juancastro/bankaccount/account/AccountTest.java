@@ -17,12 +17,12 @@ public class AccountTest {
 
     @Test
     void deposit_shouldIncreaseBalanceAndDeposits() {
-        Account account = new SavingsAccount(5000, 0.12f);
+        Account account = new SavingsAccount(15000, 0.12f);
 
         account.deposit(3000);
 
-        assertThat(account.print(), containsString("Balance: 8000.0"));
-        assertThat(account.print(), containsString("Deposits: 1"));
+        assertThat(account.print(), containsString("Balance: 18000.0"));
+        assertThat(account.print(), containsString(" Total Transactions: 1"));
     }
 
     @Test
@@ -32,7 +32,7 @@ public class AccountTest {
         account.withdraw(2000);
 
         assertThat(account.print(), containsString("Balance: 8000.0"));
-        assertThat(account.print(), containsString("Withdrawals: 1"));
+        assertThat(account.print(), containsString(" Total Transactions: 1"));
     }
 
     @Test

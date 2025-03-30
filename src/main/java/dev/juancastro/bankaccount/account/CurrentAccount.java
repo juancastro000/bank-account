@@ -43,7 +43,7 @@ public class CurrentAccount extends Account {
         int totalTransactions = deposits + withdrawals;
         return String.format(Locale.US, 
                 "Balance: %.1f, Annual Rate: %.1f%%, Deposits: %d, Withdrawals: %d, Monthly Fee: %.1f, Total Transactions: %d, Overdraft: %.1f",
-                balance, annualRate, deposits, withdrawals, monthlyFee, totalTransactions, overdraft);
+                balance, annualRate * 100, deposits, withdrawals, monthlyFee, totalTransactions, overdraft);
     }
     public float getOverdraft() {
         return overdraft;

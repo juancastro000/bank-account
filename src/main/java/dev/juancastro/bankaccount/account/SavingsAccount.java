@@ -39,7 +39,7 @@ public class SavingsAccount extends Account {
         int totalTransactions = deposits + withdrawals;
         return String.format(Locale.US, 
                 "Balance: %.1f, Annual Rate: %.1f%%, Active: %b, Monthly Fee: %.1f, Total Transactions: %d", 
-                balance, annualRate, active, monthlyFee, totalTransactions);
+                balance, annualRate * 100, active, monthlyFee, totalTransactions);
     }
     
     private void updateStatus() {
