@@ -20,4 +20,12 @@ public class CurrentAccountTest {
         assertThat(info, containsString("Balance: 0.0"));
         assertThat("overdraft should be 1000",(double) account.getOverdraft(), is(closeTo(1000.0, 0.001)));
     }
+    @Test
+    public void testDepositReducesOverdraft() {
+        CurrentAccount account = new CurrentAccount(3000, 12);
+        account.withdraw(4000); 
+        account.deposit(500);   
+        String info = account.print();
+        assertThat(info, containsString("Overdraft: 500.0"));
+    }
 }
