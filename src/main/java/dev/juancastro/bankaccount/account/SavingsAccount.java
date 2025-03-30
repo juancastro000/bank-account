@@ -36,7 +36,10 @@ public class SavingsAccount extends Account {
 
     @Override
     public String print() {
-        return String.format(Locale.US, "Balance: %.1f, Annual Rate: %.1f%% Active: %b, Deposits: %d, Withdrawals: %d", balance, annualRate * 100, active, deposits, withdrawals);
+        int totalTransactions = deposits + withdrawals;
+        return String.format(Locale.US, 
+                "Balance: %.1f, Annual Rate: %.1f%%, Active: %b, Monthly Fee: %.1f, Total Transactions: %d", 
+                balance, annualRate, active, monthlyFee, totalTransactions);
     }
     
     private void updateStatus() {
