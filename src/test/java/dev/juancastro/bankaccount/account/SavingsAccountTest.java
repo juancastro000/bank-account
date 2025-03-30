@@ -20,4 +20,13 @@ public class SavingsAccountTest {
         assertThat(info, containsString("Balance: 8000.0"));
         assertThat("account inactive", account.isActive(), is(false));
     }
+
+    @Test
+    public void testWithdrawCausingInactiveState() {
+        SavingsAccount account = new SavingsAccount(15000, 12);
+        account.withdraw(5001);
+        String info = account.print();
+        assertThat(info, containsString("Balance: 9999.0"));
+        assertThat("account should be inactive", account.isActive(), is(false));
+    }
 }
