@@ -28,4 +28,7 @@ public class CurrentAccount extends Account {
             balance, overdraft
         );
     }
+    public float getOverdraft() {
+        return overdraft;
+    }
 }

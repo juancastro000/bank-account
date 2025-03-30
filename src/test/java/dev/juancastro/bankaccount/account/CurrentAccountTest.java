@@ -18,6 +18,6 @@ public class CurrentAccountTest {
         account.withdraw(4000);
         String info = account.print();
         assertThat(info, containsString("Balance: 0.0"));
-        assertThat("overdraft should be 1000", account.getOverdraft(), is(closeTo(1000.0f, 0.001f)));
+        assertThat("overdraft should be 1000",(double) account.getOverdraft(), is(closeTo(1000.0, 0.001)));
     }
 }
